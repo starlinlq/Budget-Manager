@@ -1,9 +1,10 @@
 package Manager;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Main {
-
+    static Scanner scanner = new Scanner(System.in);
     //purchases.txt
     //User class
     //userCollection - is going to save all the users created -
@@ -11,9 +12,27 @@ public class Main {
     //hashmap key-values (name (key), price (value)) for the categories, and users
     //
 
-
     public static void main(String[] args) {
         displayMenu();
+      while(true) {
+
+          try {
+              int opt = Integer.parseInt(scanner.nextLine());
+
+              switch (opt){
+                  case 1: {};
+                  case 2: {};
+                  case 3: {};
+                  case 4: {};
+                  case 5: {};
+                  default: break;
+              }
+
+          } catch(NumberFormatException ex){
+              System.out.println(ex.getMessage());
+          }
+      }
+
     }
 
     public static void displayMenu(){
@@ -24,7 +43,8 @@ public class Main {
                            "3) Show list of purchases \n" +
                            "4) Balance \n" +
                            "5) Save \n" +
-                           "6) Load  \n" +
                            "0) Exit ");
     }
+
+
 }
