@@ -1,9 +1,11 @@
 package Manager;
 
+import java.util.HashMap;
+
 public class Main {
 
     //purchases.txt
-    //User
+    //User class
     //userCollection - is going to save all the users created -
     //      //     / - save in the file
     //hashmap key-values (name (key), price (value)) for the categories, and users
@@ -15,6 +17,7 @@ public class Main {
     }
 
     public static void displayMenu(){
+
         System.out.println("Choose your action: \n" +
                            "1) Add income \n" +
                            "2) Add Purchase \n" +
