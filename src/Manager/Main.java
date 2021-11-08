@@ -18,18 +18,22 @@ public class Main {
       while(true) {
           try {
               int opt = Integer.parseInt(scanner.nextLine());
-
-              switch (opt){
+              switch (opt) {
                   case 1: {};
                   case 2: {};
                   case 3: {};
                   case 4: {};
                   case 5: {};
-                  default: break;
+                  case 0: {
+                      break;
+                  }
+                  default:{
+                      System.out.println("Wrong option, try again");
+                  }
               }
 
           } catch(NumberFormatException ex){
-              System.out.println(ex.getMessage());
+              System.out.println("Invalid number");
           }
       }
 
@@ -44,8 +48,7 @@ public class Main {
                            "4) Balance \n" +
                            "5) Save \n" +
                            "0) Exit ");
+
     }
-
-
 
 }

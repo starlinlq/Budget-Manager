@@ -29,7 +29,7 @@ public class User {
         this.income = income;
     }
 
-    public void addExpense(String key, String name, int price){
+    public void addExpense(String key, String name, int price) {
         var expense = this.list.get(key);
 
         if(expense.containsKey(name)){
@@ -37,6 +37,7 @@ public class User {
         } else
             this.list.get(key).put(name, price);
 
+        this.expensesTotal += price;
     }
 
     public HashMap<String, Integer> getExpenses(String key) {
@@ -44,8 +45,7 @@ public class User {
     }
 
     public int getBalance() {
-
-        return balance;
+        return balance - expensesTotal;
     }
 
     public int getIncome() {
