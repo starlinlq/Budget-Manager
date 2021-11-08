@@ -31,13 +31,14 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        displayMenu();
         //readObj()
+        getUser();
+
 
         while (true) {
             try {
+                displayMenu();
                 int opt = Integer.parseInt(scanner.nextLine());
-
                 switch (opt) {
                     case 1: {
                         char c = '\n';
@@ -82,8 +83,7 @@ public class Main {
         }
     }
 
-
-    public static void displayMenu(){
+    public static void getUser(){
         System.out.println("Please enter user name");
         String name = scanner.nextLine();
 
@@ -96,6 +96,9 @@ public class Main {
             user = newUser;
             System.out.println("Welcome " + name);
         }
+    }
+
+    public static void displayMenu(){
 
         System.out.println("Choose your action: \n" +
                 "1) Add income \n" +
