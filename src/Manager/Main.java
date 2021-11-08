@@ -31,7 +31,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        //readObj()
+        readObj();
         getUser();
 
 
@@ -52,24 +52,42 @@ public class Main {
                         break;
                     }
                     case 2: {
-                        System.out.print("\033[H\033[2J");
-                        System.out.flush();
+                        char c = '\n';
+                        int length = 25;
+                        char[] chars = new char[length];
+                        Arrays.fill(chars, c);
+                        System.out.print(String.valueOf(chars));
+                        Runtime.getRuntime().exec("clear");
                         System.out.println("just seeing if 2 works");
                         break;
                     }
                     case 3: {
-                        System.out.print("\033[H\033[2J");
-                        System.out.flush();
+                        char c = '\n';
+                        int length = 25;
+                        char[] chars = new char[length];
+                        Arrays.fill(chars, c);
+                        System.out.print(String.valueOf(chars));
+                        Runtime.getRuntime().exec("clear");
                         System.out.println("just seeing if 3 works");
                         break;
                     }
                     case 4: {
+                        char c = '\n';
+                        int length = 25;
+                        char[] chars = new char[length];
+                        Arrays.fill(chars, c);
+                        System.out.print(String.valueOf(chars));
+                        Runtime.getRuntime().exec("clear");
                         balance();
                         break;
                     }
                     case 5: {
-                        System.out.print("\033[H\033[2J");
-                        System.out.flush();
+                        char c = '\n';
+                        int length = 25;
+                        char[] chars = new char[length];
+                        Arrays.fill(chars, c);
+                        System.out.print(String.valueOf(chars));
+                        Runtime.getRuntime().exec("clear");
                         System.out.println("just seeing if 5 works");
                         break;
                     }
