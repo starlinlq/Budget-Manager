@@ -24,7 +24,7 @@ public class Main {
                 switch (opt) {
                     case 1: {
                         char c = '\n';
-                        int length = 1;
+                        int length = 25;
                         char[] chars = new char[length];
                         Arrays.fill(chars, c);
                         System.out.print(String.valueOf(chars));
