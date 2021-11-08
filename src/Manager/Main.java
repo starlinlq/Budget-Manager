@@ -17,12 +17,11 @@ public class Main {
     public static void main(String[] args) {
         displayMenu();
 
-<<<<<<< HEAD
-        while(true) {
+        while (true) {
             try {
                 int opt = Integer.parseInt(scanner.nextLine());
 
-                switch (opt){
+                switch (opt) {
                     case 1: {
                         char c = '\n';
                         int length = 1;
@@ -57,43 +56,42 @@ public class Main {
                         System.out.println("just seeing if 5 works");
                         break;
                     }
-                    default: break;
+                    default:
+                        break;
                 }
 
-            } catch(NumberFormatException | IOException ex){
+            } catch (NumberFormatException | IOException ex) {
                 System.out.println(ex.getMessage());
             }
         }
-=======
-      while(true) {
-          try {
-              int opt = Integer.parseInt(scanner.nextLine());
-              switch (opt) {
-                  case 1: {};
-                  case 2: {};
-                  case 3: {};
-                  case 4: {};
-                  case 5: {};
-                  case 0: {
-                      break;
-                  }
-                  default:{
-                      System.out.println("Wrong option, try again");
-                  }
-              }
-
-          } catch(NumberFormatException ex){
-              System.out.println("Invalid number");
-          }
-      }
->>>>>>> 92ef3ec04654900ce123a1da6f220d9c6de1ff9b
-
     }
+//      while(true) {
+//          try {
+//              int opt = Integer.parseInt(scanner.nextLine());
+//              switch (opt) {
+//                  case 1: {};
+//                  case 2: {};
+//                  case 3: {};
+//                  case 4: {};
+//                  case 5: {};
+//                  case 0: {
+//                      break;
+//                  }
+//                  default:{
+//                      System.out.println("Wrong option, try again");
+//                  }
+//              }
+//
+//          } catch(NumberFormatException ex){
+//              System.out.println("Invalid number");
+//          }
+//      }
+//
+//    }
 
     public static void displayMenu(){
 
         System.out.println("Choose your action: \n" +
-<<<<<<< HEAD
                 "1) Add income \n" +
                 "2) Add Purchase \n" +
                 "3) Show list of purchases \n" +
@@ -105,15 +103,13 @@ public class Main {
 
 
 }
-=======
-                           "1) Add income \n" +
-                           "2) Add Purchase \n" +
-                           "3) Show list of purchases \n" +
-                           "4) Balance \n" +
-                           "5) Save \n" +
-                           "0) Exit ");
+//                           "1) Add income \n" +
+//                           "2) Add Purchase \n" +
+//                           "3) Show list of purchases \n" +
+//                           "4) Balance \n" +
+//                           "5) Save \n" +
+//                           "0) Exit ");
+//
+//    }
 
-    }
-
-}
->>>>>>> 92ef3ec04654900ce123a1da6f220d9c6de1ff9b
+//}
