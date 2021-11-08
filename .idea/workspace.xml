@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="ba8ee6f4-2058-4e49-9c34-a0bffeeef8fc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Budget-Manager/Manager/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Budget-Manager/Manager/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Manager/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Manager/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/User.java" afterDir="false" />
     </list>
-=======
-    <list default="true" id="ba8ee6f4-2058-4e49-9c34-a0bffeeef8fc" name="Changes" comment="" />
->>>>>>> 92ef3ec04654900ce123a1da6f220d9c6de1ff9b
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

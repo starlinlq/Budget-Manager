@@ -1,5 +1,4 @@
 package Manager;
-
 import java.io.*;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,6 +8,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     static UserCollection collection = new UserCollection();
     static String path = "";
+    static User user;
     
     public static void readObj(){
        try{
@@ -32,6 +32,7 @@ public class Main {
 
     public static void main(String[] args) {
         displayMenu();
+        //readObj()
 
         while (true) {
             try {
@@ -46,6 +47,7 @@ public class Main {
                         System.out.print(String.valueOf(chars));
                         Runtime.getRuntime().exec("clear");
                         System.out.println("just seeing if 1 works");
+                        setIncome();
                         break;
                     }
                     case 2: {
@@ -61,9 +63,7 @@ public class Main {
                         break;
                     }
                     case 4: {
-                        System.out.print("\033[H\033[2J");
-                        System.out.flush();
-                        System.out.println("just seeing if 4 works");
+                        balance();
                         break;
                     }
                     case 5: {
@@ -84,6 +84,18 @@ public class Main {
 
 
     public static void displayMenu(){
+        System.out.println("Please enter user name");
+        String name = scanner.nextLine();
+
+        if(collection.getUser(name) != null){
+            user = collection.getUser(name);
+            System.out.println("Welcome back "+ user.getName());
+        } else {
+            User newUser = new User(name, 0);
+            collection.addUser(newUser);
+            user = newUser;
+            System.out.println("Welcome " + name);
+        }
 
         System.out.println("Choose your action: \n" +
                 "1) Add income \n" +
@@ -94,6 +106,21 @@ public class Main {
                 "0) Exit ");
     }
 
+    public static void setIncome(){
+        System.out.println("Enter Income");
+        try {
+            int income = Integer.parseInt(scanner.nextLine());
+            user.setIncome(income);
+            System.out.println("Income was added");
 
+        } catch(NumberFormatException ex){
+            System.out.println("Wrong number format");
+        }
+
+    }
+
+    public static void balance(){
+        System.out.println(user.getBalance());
+    }
 
 }
