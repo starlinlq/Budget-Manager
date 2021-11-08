@@ -1,16 +1,33 @@
 package Manager;
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
-    //purchases.txt
-    //User class
-    //userCollection - is going to save all the users created -
-    //      //     / - save in the file
-    //hashmap key-values (name (key), price (value)) for the categories, and users
-    //
+    static UserCollection collection = new UserCollection();
+    static String path = "";
+    
+    public static void readObj(){
+       try{
+           FileInputStream file = new FileInputStream(path);
+           ObjectInputStream in = new ObjectInputStream(file);
+           collection = (UserCollection) in.readObject();
+       } catch (IOException | ClassNotFoundException ex){
+           System.out.println(ex.getMessage());
+       }
+    }
+
+    public static void writeObj(){
+        try{
+            FileOutputStream file = new FileOutputStream(path);
+            ObjectOutputStream out = new ObjectOutputStream(file);
+            out.writeObject(collection);
+        } catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
 
     public static void main(String[] args) {
         displayMenu();
