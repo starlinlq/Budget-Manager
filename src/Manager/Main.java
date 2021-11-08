@@ -14,8 +14,8 @@ public class Main {
 
     public static void main(String[] args) {
         displayMenu();
-      while(true) {
 
+      while(true) {
           try {
               int opt = Integer.parseInt(scanner.nextLine());
 

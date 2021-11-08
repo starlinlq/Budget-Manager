@@ -6,6 +6,7 @@ public class User {
     private String name;
     private int income;
     private int balance;
+    private int expensesTotal;
 
     HashMap<String, HashMap<String, Integer>> list = new HashMap<>();
 
@@ -35,6 +36,7 @@ public class User {
             expense.put(name, expense.get(name) + price);
         } else
             this.list.get(key).put(name, price);
+
     }
 
     public HashMap<String, Integer> getExpenses(String key) {
@@ -42,6 +44,7 @@ public class User {
     }
 
     public int getBalance() {
+
         return balance;
     }
 
