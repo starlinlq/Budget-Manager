@@ -3,9 +3,9 @@ package Manager;
 import java.util.HashMap;
 
 public class User {
-    private String name = "tom";
-    private int income = 0;
-    private int balance = 0;
+    private String name;
+    private int income;
+    private int balance;
     HashMap<String, HashMap<String, Integer>> list = new HashMap<>();
 
     User(String name, int income, int balance){
