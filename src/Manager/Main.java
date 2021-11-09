@@ -152,13 +152,15 @@ public class Main {
         String category = "";
         String itemName = "";
         double itemPrice;
-        System.out.println("Choose a purchase category.");
-        System.out.println("1. Food");
-        System.out.println("2. Clothes");
-        System.out.println("3. Entertainment");
-        System.out.println("4. Other");
-        System.out.println("5. go back");
         int userResponse = scanner.nextInt();
+        while(!((userResponse == 1) || (userResponse == 2) || (userResponse == 3)|| (userResponse == 3)|| (userResponse == 5))) {
+            System.out.println("Choose a purchase category.");
+            System.out.println("1. Food");
+            System.out.println("2. Clothes");
+            System.out.println("3. Entertainment");
+            System.out.println("4. Other");
+            System.out.println("5. Go back");
+        }
         switch(userResponse) {
             case 1: {
                 category = "Food";
@@ -200,7 +202,7 @@ public class Main {
                 writeObj();
                 break;
             }
-            case 5: { // will need to change this to call the main()? or reroute to main menu
+            case 5: {
                 category = "Other";
                 System.out.println("Enter item name");
                 itemName = scanner.nextLine();
