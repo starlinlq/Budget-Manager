@@ -166,8 +166,12 @@ public class Main {
                 itemName = scanner.nextLine();
                 System.out.println("Enter price");
                 itemPrice = scanner.nextDouble();
+<<<<<<< HEAD
                 user.addExpense(category,itemName, (int) itemPrice);
                 writeObj();
+=======
+                user.addExpense(category,itemName, itemPrice);
+>>>>>>> c4034ad5e5eb003d8348e4909b81f55fd07b6355
             }
             case 2: {
                 category = "Clothes";
@@ -175,8 +179,12 @@ public class Main {
                 itemName = scanner.nextLine();
                 System.out.println("Enter price");
                 itemPrice = scanner.nextDouble();
+<<<<<<< HEAD
                 user.addExpense(category,itemName, (int) itemPrice);
                 writeObj();
+=======
+                user.addExpense(category,itemName,  itemPrice);
+>>>>>>> c4034ad5e5eb003d8348e4909b81f55fd07b6355
             }
             case 3: {
                 category = "Entertainment";
@@ -184,8 +192,12 @@ public class Main {
                 itemName = scanner.nextLine();
                 System.out.println("Enter price");
                 itemPrice = scanner.nextDouble();
+<<<<<<< HEAD
                 user.addExpense(category,itemName, (int) itemPrice);
                 writeObj();
+=======
+                user.addExpense(category,itemName, itemPrice);
+>>>>>>> c4034ad5e5eb003d8348e4909b81f55fd07b6355
             }
             case 4: {
                 category = "Other";
@@ -193,8 +205,12 @@ public class Main {
                 itemName = scanner.nextLine();
                 System.out.println("Enter price");
                 itemPrice = scanner.nextDouble();
+<<<<<<< HEAD
                 user.addExpense(category,itemName, (int) itemPrice);
                 writeObj();
+=======
+                user.addExpense(category,itemName, itemPrice);
+>>>>>>> c4034ad5e5eb003d8348e4909b81f55fd07b6355
             }
             case 5: { // will need to change this to call the main()? or reroute to main menu
                 category = "Other";
@@ -202,7 +218,7 @@ public class Main {
                 itemName = scanner.nextLine();
                 System.out.println("Enter price");
                 itemPrice = scanner.nextDouble();
-                user.addExpense(category,itemName, (int) itemPrice);
+                user.addExpense(category,itemName,  itemPrice);
             }
 
         }
