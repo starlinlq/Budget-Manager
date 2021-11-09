@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     static UserCollection collection = new UserCollection();
-    static String path = "Manager/purchases.txt";
+    static String path = "C:\\Users\\amcmu\\IdeaProjects\\Budget-Manager\\src\\Manager\\purchases.txt";
     static User user;
 
     public static void readObj(){
@@ -42,63 +42,62 @@ public class Main {
                 int opt = Integer.parseInt(scanner.nextLine());
                 switch (opt) {
                     case 1: {
-                        char c = '\n';
-                        int length = 25;
-                        char[] chars = new char[length];
-                        Arrays.fill(chars, c);
-                        System.out.print(String.valueOf(chars));
-                        Runtime.getRuntime().exec("clear");
                         setIncome();
                         break;
                     }
                     case 2: { //add purchase
-                        char c = '\n';
-                        int length = 25;
-                        char[] chars = new char[length];
-                        Arrays.fill(chars, c);
-                        System.out.print(String.valueOf(chars));
-                        Runtime.getRuntime().exec("clear");
                         makeAPurchase();
                         break;
                     }
                     case 3: { //show purchases
-                        char c = '\n';
-                        int length = 25;
-                        char[] chars = new char[length];
-                        Arrays.fill(chars, c);
-                        System.out.print(String.valueOf(chars));
-                        Runtime.getRuntime().exec("clear");
                         System.out.println("Current balance: ");
                         user.getBalance();
-                        System.out.println("Current purchases: ");
-                        readObj();
-                        StringBuilder sb = new StringBuilder();
-                        String line;
-                        BufferedReader FileReader = new BufferedReader(new FileReader("Manager/purchases.txt"));
-                        while ((line = FileReader.readLine()) != null) {
-                            sb.append(line);
-                            System.out.println(line);
+                        System.out.println("Choose a category.");
+                        System.out.println("1. Food");
+                        System.out.println("2. Clothes");
+                        System.out.println("3. Entertainment");
+                        System.out.println("4. Other");
+                        int userChoice = Integer.parseInt(scanner.nextLine());
+                        if(userChoice == 1) {
+                            HashMap<String, Double> purchases = user.getExpenses("Food");
+                            if(purchases != null) {
+                                System.out.println(purchases.values());
+                            }else{
+                                System.out.println("No purchases made yet!");
+                            }
+                        }
+                        if(userChoice == 2) {
+                            HashMap<String, Double> purchases = user.getExpenses("Clothes");
+                            if(purchases != null) {
+                                System.out.println(purchases.values());
+                            }else{
+                                System.out.println("No purchases made yet!");
+                            }
+                        }
+                        if(userChoice == 3) {
+                            HashMap<String, Double> purchases = user.getExpenses("Entertainment");
+                            if(purchases != null) {
+                                System.out.println(purchases.values());
+                            }else{
+                                System.out.println("No purchases made yet!");
+                            }
+                        }
+                        if(userChoice == 4) {
+                            HashMap<String, Double> purchases = user.getExpenses("Other");
+                            if(purchases != null) {
+                                System.out.println(purchases.values());
+                            }else{
+                                System.out.println("No purchases made yet!");
+                            }
                         }
 
                         break;
                     }
                     case 4: {
-                        char c = '\n';
-                        int length = 25;
-                        char[] chars = new char[length];
-                        Arrays.fill(chars, c);
-                        System.out.print(String.valueOf(chars));
-                        Runtime.getRuntime().exec("clear");
                         balance();
                         break;
                     }
                     case 5: {
-                        char c = '\n';
-                        int length = 25;
-                        char[] chars = new char[length];
-                        Arrays.fill(chars, c);
-                        System.out.print(String.valueOf(chars));
-                        Runtime.getRuntime().exec("clear");
                         writeObj();
                         break;
                     }
@@ -106,7 +105,7 @@ public class Main {
                         break;
                 }
 
-            } catch (NumberFormatException | IOException ex) {
+            } catch (NumberFormatException ex) {
                 System.out.println(ex.getMessage());
             }
         }
