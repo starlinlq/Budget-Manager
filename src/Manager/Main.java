@@ -167,6 +167,7 @@ public class Main {
                 System.out.println("Enter price");
                 itemPrice = scanner.nextDouble();
                 user.addExpense(category,itemName, (int) itemPrice);
+                writeObj();
             }
             case 2: {
                 category = "Clothes";
@@ -175,6 +176,7 @@ public class Main {
                 System.out.println("Enter price");
                 itemPrice = scanner.nextDouble();
                 user.addExpense(category,itemName, (int) itemPrice);
+                writeObj();
             }
             case 3: {
                 category = "Entertainment";
@@ -183,6 +185,7 @@ public class Main {
                 System.out.println("Enter price");
                 itemPrice = scanner.nextDouble();
                 user.addExpense(category,itemName, (int) itemPrice);
+                writeObj();
             }
             case 4: {
                 category = "Other";
@@ -191,6 +194,7 @@ public class Main {
                 System.out.println("Enter price");
                 itemPrice = scanner.nextDouble();
                 user.addExpense(category,itemName, (int) itemPrice);
+                writeObj();
             }
             case 5: { // will need to change this to call the main()? or reroute to main menu
                 category = "Other";
