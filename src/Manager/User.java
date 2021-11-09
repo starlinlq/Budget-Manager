@@ -31,11 +31,19 @@ public class User {
     public void addExpense(String key, String name, double price) {
         var expense = this.list.get(key);
 
-        if (expense.containsKey(name)) {
-            expense.put(name, expense.get(name) + price);
-        } else
-            this.list.get(key).put(name, price);
-        this.expensesTotal += price;
+        if(expense == null){
+            this.list.put(key, new HashMap<>());
+        }
+
+        if(expense != null){
+            if (expense.containsKey(name)) {
+                expense.put(name, expense.get(name) + price);
+            } else
+                this.list.get(key).put(name, price);
+
+            this.expensesTotal += price;
+        }
+
     }
 
     public HashMap<String, Double> getExpenses(String key) {
