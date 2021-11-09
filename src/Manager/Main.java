@@ -208,6 +208,9 @@ public class Main {
                 itemPrice = scanner.nextDouble();
                 user.addExpense(category,itemName,  itemPrice);
             }
+            default:{
+                System.out.println("Please make a valid selection.");
+            }
 
         }
 
