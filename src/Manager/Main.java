@@ -101,6 +101,10 @@ public class Main {
                         writeObj();
                         break;
                     }
+                    case 0: {
+                        System.exit(0);
+                        break;
+                    }
                     default:
                         break;
                 }
