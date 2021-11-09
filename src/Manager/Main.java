@@ -58,7 +58,6 @@ public class Main {
                         Arrays.fill(chars, c);
                         System.out.print(String.valueOf(chars));
                         Runtime.getRuntime().exec("clear");
-
                         break;
                     }
                     case 3: { //show purchases
@@ -147,15 +146,5 @@ public class Main {
         System.out.println(user.getBalance());
     }
 
-    public static void savePurchases(String userName) throws IOException {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("src/Manager/purchases.txt"));
-            writer.write(user.getName());
-            writer.write(user.getBalance());
-            writer.close();
-        }catch(IOException e){
-            e.printStackTrace();
-        }
-    }
 
 }
