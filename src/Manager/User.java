@@ -2,12 +2,12 @@ package Manager;
 
 import java.util.HashMap;
 
-public class User<list> {
+public class User {
     private String name;
-    private int income;
-    private int expensesTotal = 0;
+    private double income;
+    private double expensesTotal = 0;
 
-    HashMap<String, HashMap<String, Integer>> list = new HashMap<>();
+    HashMap<String, HashMap<String, Double>> list = new HashMap<>();
 
     User(String name, int income){
         this.name = name;
@@ -28,7 +28,7 @@ public class User<list> {
     }
 
 
-    public void addExpense(String key, String name, int price) {
+    public void addExpense(String key, String name, double price) {
         var expense = this.list.get(key);
 
         if (expense.containsKey(name)) {
@@ -38,15 +38,15 @@ public class User<list> {
         this.expensesTotal += price;
     }
 
-    public HashMap<String, Integer> getExpenses(String key) {
+    public HashMap<String, Double> getExpenses(String key) {
         return this.list.get(key);
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return income - expensesTotal;
     }
 
-    public int getIncome() {
+    public double getIncome() {
         return income;
     }
 }
