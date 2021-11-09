@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     static UserCollection collection = new UserCollection();
-    static String path = "";
+    static String path = "Manager/purchases.txt";
     static User user;
 
     public static void readObj(){
@@ -71,7 +71,7 @@ public class Main {
                         System.out.println("Current balance: ");
                         user.getBalance();
                         System.out.println("Current purchases: ");
-                        // need parameters
+                        readObj();
                         break;
                     }
                     case 4: {
@@ -91,7 +91,7 @@ public class Main {
                         Arrays.fill(chars, c);
                         System.out.print(String.valueOf(chars));
                         Runtime.getRuntime().exec("clear");
-                        System.out.println("just seeing if 5 works");
+                        writeObj();
                         break;
                     }
                     default:

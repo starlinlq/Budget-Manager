@@ -7,7 +7,7 @@ public class User<list> {
     private int income;
     private int expensesTotal = 0;
 
-    static HashMap<String, HashMap<String, Integer>> list = new HashMap<>();
+    HashMap<String, HashMap<String, Integer>> list = new HashMap<>();
 
     User(String name, int income){
         this.name = name;
