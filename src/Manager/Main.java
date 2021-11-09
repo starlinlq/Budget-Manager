@@ -12,13 +12,13 @@ public class Main {
     static User user;
 
     public static void readObj(){
-       try{
-           FileInputStream file = new FileInputStream(path);
-           ObjectInputStream in = new ObjectInputStream(file);
-           collection = (UserCollection) in.readObject();
-       } catch (IOException | ClassNotFoundException ex){
-           System.out.println(ex.getMessage());
-       }
+        try{
+            FileInputStream file = new FileInputStream(path);
+            ObjectInputStream in = new ObjectInputStream(file);
+            collection = (UserCollection) in.readObject();
+        } catch (IOException | ClassNotFoundException ex){
+            System.out.println(ex.getMessage());
+        }
     }
 
     public static void writeObj(){
@@ -48,7 +48,6 @@ public class Main {
                         Arrays.fill(chars, c);
                         System.out.print(String.valueOf(chars));
                         Runtime.getRuntime().exec("clear");
-                        System.out.println("just seeing if 1 works");
                         setIncome();
                         break;
                     }
@@ -73,6 +72,14 @@ public class Main {
                         user.getBalance();
                         System.out.println("Current purchases: ");
                         readObj();
+                        StringBuilder sb = new StringBuilder();
+                        String line;
+                        BufferedReader FileReader = new BufferedReader(new FileReader("Manager/purchases.txt"));
+                        while ((line = FileReader.readLine()) != null) {
+                            sb.append(line);
+                            System.out.println(line);
+                        }
+
                         break;
                     }
                     case 4: {
@@ -107,6 +114,7 @@ public class Main {
 
     public static void getUser(){
         System.out.println("Please enter user name");
+        System.out.print("> ");
         String name = scanner.nextLine();
 
         if(collection.getUser(name) != null){
@@ -151,69 +159,73 @@ public class Main {
     public static void makeAPurchase(){
         String category = "";
         String itemName = "";
+        boolean isValid = false;
         double itemPrice;
-        int userResponse = scanner.nextInt();
-        while(!((userResponse == 1) || (userResponse == 2) || (userResponse == 3)|| (userResponse == 3)|| (userResponse == 5))) {
+        while(!isValid) {
             System.out.println("Choose a purchase category.");
             System.out.println("1. Food");
             System.out.println("2. Clothes");
             System.out.println("3. Entertainment");
             System.out.println("4. Other");
             System.out.println("5. Go back");
-        }
-        switch(userResponse) {
-            case 1: {
-                category = "Food";
-                System.out.println("Enter item name");
-                itemName = scanner.nextLine();
-                System.out.println("Enter price");
-                itemPrice = scanner.nextDouble();
-                user.addExpense(category,itemName, itemPrice);
-                writeObj();
-                break;
-            }
-            case 2: {
-                category = "Clothes";
-                System.out.println("Enter item name");
-                itemName = scanner.nextLine();
-                System.out.println("Enter price");
-                itemPrice = scanner.nextDouble();
-                user.addExpense(category,itemName, itemPrice);
-                writeObj();
-                break;
-            }
-            case 3: {
-                category = "Entertainment";
-                System.out.println("Enter item name");
-                itemName = scanner.nextLine();
-                System.out.println("Enter price");
-                itemPrice = scanner.nextDouble();
-                user.addExpense(category,itemName, itemPrice);
-                writeObj();
-                break;
-            }
-            case 4: {
-                category = "Other";
-                System.out.println("Enter item name");
-                itemName = scanner.nextLine();
-                System.out.println("Enter price");
-                itemPrice = scanner.nextDouble();
-                user.addExpense(category,itemName, itemPrice);
-                writeObj();
-                break;
-            }
-            case 5: {
-                category = "Other";
-                System.out.println("Enter item name");
-                itemName = scanner.nextLine();
-                System.out.println("Enter price");
-                itemPrice = scanner.nextDouble();
-                user.addExpense(category,itemName, itemPrice);
-            }
-            default:{
-                System.out.println("Please make a valid selection.");
-            }
+            System.out.print("> ");
+            int userResponse = Integer.parseInt(scanner.nextLine());
 
+            switch (userResponse) {
+                case 1: {
+                    category = "Food";
+                    System.out.println("Enter item name");
+                    itemName = scanner.nextLine();
+                    System.out.println("Enter price");
+                    itemPrice = scanner.nextDouble();
+                    user.addExpense(category, itemName, itemPrice);
+                    isValid = true;
+                    break;
+                }
+                case 2: {
+                    category = "Clothes";
+                    System.out.println("Enter item name");
+                    itemName = scanner.nextLine();
+                    System.out.println("Enter price");
+                    itemPrice = scanner.nextDouble();
+                    user.addExpense(category, itemName, itemPrice);
+                    isValid = true;
+                    break;
+                }
+                case 3: {
+                    category = "Entertainment";
+                    System.out.println("Enter item name");
+                    itemName = scanner.nextLine();
+                    System.out.println("Enter price");
+                    itemPrice = scanner.nextDouble();
+                    user.addExpense(category, itemName, itemPrice);
+                    isValid = true;
+                    break;
+                }
+                case 4: {
+                    category = "Other";
+                    System.out.println("Enter item name");
+                    itemName = scanner.nextLine();
+                    System.out.println("Enter price");
+                    itemPrice = scanner.nextDouble();
+                    user.addExpense(category, itemName, itemPrice);
+                    isValid = true;
+                    break;
+                }
+                case 5: {
+                    category = "Other";
+                    System.out.println("Enter item name");
+                    itemName = scanner.nextLine();
+                    System.out.println("Enter price");
+                    itemPrice = scanner.nextDouble();
+                    user.addExpense(category, itemName, itemPrice);
+                    isValid = true;
+                }
+                default: {
+                    System.out.println("Please make a valid selection. \n");
+                }
+
+            }
         }
 
     }
