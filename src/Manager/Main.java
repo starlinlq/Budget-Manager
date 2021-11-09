@@ -1,5 +1,6 @@
 package Manager;
 import java.io.*;
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -58,6 +59,7 @@ public class Main {
                         Arrays.fill(chars, c);
                         System.out.print(String.valueOf(chars));
                         Runtime.getRuntime().exec("clear");
+                        makeAPurchase();
                         break;
                     }
                     case 3: { //show purchases
@@ -144,6 +146,63 @@ public class Main {
 
     public static void balance(){
         System.out.println(user.getBalance());
+    }
+
+    public static void makeAPurchase(){
+        String category = "";
+        String itemName = "";
+        double itemPrice;
+        System.out.println("Choose a purchase category.");
+        System.out.println("1. Food");
+        System.out.println("2. Clothes");
+        System.out.println("3. Entertainment");
+        System.out.println("4. Other");
+        System.out.println("5. go back");
+        int userResponse = scanner.nextInt();
+        switch(userResponse) {
+            case 1: {
+                category = "Food";
+                System.out.println("Enter item name");
+                itemName = scanner.nextLine();
+                System.out.println("Enter price");
+                itemPrice = scanner.nextDouble();
+                user.addExpense(category,itemName, (int) itemPrice);
+            }
+            case 2: {
+                category = "Clothes";
+                System.out.println("Enter item name");
+                itemName = scanner.nextLine();
+                System.out.println("Enter price");
+                itemPrice = scanner.nextDouble();
+                user.addExpense(category,itemName, (int) itemPrice);
+            }
+            case 3: {
+                category = "Entertainment";
+                System.out.println("Enter item name");
+                itemName = scanner.nextLine();
+                System.out.println("Enter price");
+                itemPrice = scanner.nextDouble();
+                user.addExpense(category,itemName, (int) itemPrice);
+            }
+            case 4: {
+                category = "Other";
+                System.out.println("Enter item name");
+                itemName = scanner.nextLine();
+                System.out.println("Enter price");
+                itemPrice = scanner.nextDouble();
+                user.addExpense(category,itemName, (int) itemPrice);
+            }
+            case 5: { // will need to change this to call the main()? or reroute to main menu
+                category = "Other";
+                System.out.println("Enter item name");
+                itemName = scanner.nextLine();
+                System.out.println("Enter price");
+                itemPrice = scanner.nextDouble();
+                user.addExpense(category,itemName, (int) itemPrice);
+            }
+
+        }
+
     }
 
 
