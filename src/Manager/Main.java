@@ -166,7 +166,7 @@ public class Main {
                 itemName = scanner.nextLine();
                 System.out.println("Enter price");
                 itemPrice = scanner.nextDouble();
-                user.addExpense(category,itemName, (int) itemPrice);
+                user.addExpense(category,itemName, itemPrice);
                 writeObj();
                 break;
             }
@@ -176,7 +176,7 @@ public class Main {
                 itemName = scanner.nextLine();
                 System.out.println("Enter price");
                 itemPrice = scanner.nextDouble();
-                user.addExpense(category,itemName, (int) itemPrice);
+                user.addExpense(category,itemName, itemPrice);
                 writeObj();
                 break;
             }
@@ -186,7 +186,7 @@ public class Main {
                 itemName = scanner.nextLine();
                 System.out.println("Enter price");
                 itemPrice = scanner.nextDouble();
-                user.addExpense(category,itemName, (int) itemPrice);
+                user.addExpense(category,itemName, itemPrice);
                 writeObj();
                 break;
             }
@@ -196,7 +196,7 @@ public class Main {
                 itemName = scanner.nextLine();
                 System.out.println("Enter price");
                 itemPrice = scanner.nextDouble();
-                user.addExpense(category,itemName, (int) itemPrice);
+                user.addExpense(category,itemName, itemPrice);
                 writeObj();
                 break;
             }
@@ -206,7 +206,7 @@ public class Main {
                 itemName = scanner.nextLine();
                 System.out.println("Enter price");
                 itemPrice = scanner.nextDouble();
-                user.addExpense(category,itemName,  itemPrice);
+                user.addExpense(category,itemName, itemPrice);
             }
             default:{
                 System.out.println("Please make a valid selection.");
