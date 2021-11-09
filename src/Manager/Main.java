@@ -9,7 +9,7 @@ public class Main {
     static UserCollection collection = new UserCollection();
     static String path = "";
     static User user;
-    
+
     public static void readObj(){
        try{
            FileInputStream file = new FileInputStream(path);
@@ -51,24 +51,27 @@ public class Main {
                         setIncome();
                         break;
                     }
-                    case 2: {
+                    case 2: { //add purchase
                         char c = '\n';
                         int length = 25;
                         char[] chars = new char[length];
                         Arrays.fill(chars, c);
                         System.out.print(String.valueOf(chars));
                         Runtime.getRuntime().exec("clear");
-                        System.out.println("just seeing if 2 works");
+
                         break;
                     }
-                    case 3: {
+                    case 3: { //show purchases
                         char c = '\n';
                         int length = 25;
                         char[] chars = new char[length];
                         Arrays.fill(chars, c);
                         System.out.print(String.valueOf(chars));
                         Runtime.getRuntime().exec("clear");
-                        System.out.println("just seeing if 3 works");
+                        System.out.println("Current balance: ");
+                        user.getBalance();
+                        System.out.println("Current purchases: ");
+                        // need parameters
                         break;
                     }
                     case 4: {
@@ -142,6 +145,17 @@ public class Main {
 
     public static void balance(){
         System.out.println(user.getBalance());
+    }
+
+    public static void savePurchases(String userName) throws IOException {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/Manager/purchases.txt"));
+            writer.write(user.getName());
+            writer.write(user.getBalance());
+            writer.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
 }

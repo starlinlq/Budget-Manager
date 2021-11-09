@@ -2,12 +2,12 @@ package Manager;
 
 import java.util.HashMap;
 
-public class User {
+public class User<list> {
     private String name;
     private int income;
     private int expensesTotal = 0;
 
-    HashMap<String, HashMap<String, Integer>> list = new HashMap<>();
+    static HashMap<String, HashMap<String, Integer>> list = new HashMap<>();
 
     User(String name, int income){
         this.name = name;
