@@ -50,7 +50,7 @@ public class User {
         return this.list.get(key);
     }
 
-    public double getBalance() {
+    public double getBalance() {  //this on should be cast to a different variable type?
         return income - expensesTotal;
     }
 
