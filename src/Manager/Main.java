@@ -50,8 +50,10 @@ public class Main {
                         break;
                     }
                     case 3: { //show purchases
+                        /*
                         System.out.println("Current balance: ");
                         user.getBalance();
+                         */
                         System.out.println("Choose a category.");
                         System.out.println("1. Food");
                         System.out.println("2. Clothes");
@@ -61,8 +63,12 @@ public class Main {
                         if(userChoice == 1) {
                             HashMap<String, Double> purchases = user.getExpenses("Food");
                             if(purchases != null) {
-                                System.out.println(purchases.values());
-                            }else{
+                                System.out.println("");
+                                for(String key: purchases.keySet()){
+                                    System.out.println(key +" $"+ purchases.get(key));
+                                }
+                                System.out.println("");
+                            }else {
                                 System.out.println("No purchases made yet!");
                             }
                         }
@@ -172,6 +178,7 @@ public class Main {
             System.out.println("4. Other");
             System.out.println("5. Go back");
             System.out.print("> ");
+
             int userResponse = Integer.parseInt(scanner.nextLine());
 
             switch (userResponse) {
@@ -180,7 +187,7 @@ public class Main {
                     System.out.println("Enter item name");
                     itemName = scanner.nextLine();
                     System.out.println("Enter price");
-                    itemPrice = scanner.nextDouble();
+                    itemPrice = Double.parseDouble(scanner.nextLine());
                     user.addExpense(category, itemName, itemPrice);
                     isValid = true;
                     break;
@@ -190,7 +197,7 @@ public class Main {
                     System.out.println("Enter item name");
                     itemName = scanner.nextLine();
                     System.out.println("Enter price");
-                    itemPrice = scanner.nextDouble();
+                    itemPrice = Double.parseDouble(scanner.nextLine());
                     user.addExpense(category, itemName, itemPrice);
                     isValid = true;
                     break;
@@ -200,7 +207,7 @@ public class Main {
                     System.out.println("Enter item name");
                     itemName = scanner.nextLine();
                     System.out.println("Enter price");
-                    itemPrice = scanner.nextDouble();
+                    itemPrice = Double.parseDouble(scanner.nextLine());
                     user.addExpense(category, itemName, itemPrice);
                     isValid = true;
                     break;
@@ -210,7 +217,7 @@ public class Main {
                     System.out.println("Enter item name");
                     itemName = scanner.nextLine();
                     System.out.println("Enter price");
-                    itemPrice = scanner.nextDouble();
+                    itemPrice = Double.parseDouble(scanner.nextLine());
                     user.addExpense(category, itemName, itemPrice);
                     isValid = true;
                     break;
@@ -220,7 +227,7 @@ public class Main {
                     System.out.println("Enter item name");
                     itemName = scanner.nextLine();
                     System.out.println("Enter price");
-                    itemPrice = scanner.nextDouble();
+                    itemPrice =Double.parseDouble(scanner.nextLine());
                     user.addExpense(category, itemName, itemPrice);
                     isValid = true;
                 }

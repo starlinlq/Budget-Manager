@@ -32,7 +32,9 @@ public class User {
         var expense = this.list.get(key);
 
         if(expense == null){
-            this.list.put(key, new HashMap<>());
+            var newHash = new HashMap<String, Double>();
+            newHash.put(name, price);
+            this.list.put(key,newHash);
         }
 
         if(expense != null){
