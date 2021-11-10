@@ -35,7 +35,6 @@ public class Main {
         readObj();
         getUser();
 
-
         while (true) {
             try {
                 displayMenu();
@@ -105,14 +104,13 @@ public class Main {
     public static void setIncome(){
         System.out.println("Enter Income");
         try {
-            int income = Integer.parseInt(scanner.nextLine());
+            double income = Double.parseDouble(scanner.nextLine());
             user.setIncome(income);
             System.out.println("Income was added");
 
         } catch(NumberFormatException ex){
             System.out.println("Wrong number format");
         }
-
     }
 
     public static void balance(){
@@ -188,10 +186,8 @@ public class Main {
                 default: {
                     System.out.println("Please make a valid selection. \n");
                 }
-
             }
         }
-
     }
 
     static void displayPurchases(){

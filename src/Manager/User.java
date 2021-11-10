@@ -23,7 +23,7 @@ public class User {
     }
 
 
-    public void setIncome(int income) {
+    public void setIncome(double income) {
         this.income = income;
     }
 
