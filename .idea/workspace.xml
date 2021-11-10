@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="ba8ee6f4-2058-4e49-9c34-a0bffeeef8fc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/Budget-Manager/Manager/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Budget-Manager/Manager/Main.class" afterDir="false" />
-    </list>
-=======
     <list default="true" id="ba8ee6f4-2058-4e49-9c34-a0bffeeef8fc" name="Changes" comment="" />
->>>>>>> 5822d5d8bff9d0ed4af35f8b2d6ce5d9c0bdd2c9
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,8 +99,6 @@
     </task>
     <servers />
   </component>
-<<<<<<< HEAD
-=======
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -118,5 +110,4 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
->>>>>>> 5822d5d8bff9d0ed4af35f8b2d6ce5d9c0bdd2c9
 </project>
