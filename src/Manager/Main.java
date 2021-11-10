@@ -10,6 +10,8 @@ public class Main {
     static UserCollection collection = new UserCollection();
     static String path = "C:\\Users\\amcmu\\IdeaProjects\\Budget-Manager\\src\\Manager\\purchases.txt";
     static User user;
+    static Double tax = 1.00;
+    static int userResponse;
 
     public static void readObj(){
         try{
@@ -45,6 +47,12 @@ public class Main {
                         break;
                     }
                     case 2: { //add purchase
+                        System.out.println("before taxes? 1 for yes, 2 for no");
+                        int taxesResponse = scanner.nextInt();
+                        if(taxesResponse == 1){
+                            addTaxes(true);
+                            scanner.close();
+                        }
                         makeAPurchase();
                         break;
                     }
@@ -130,9 +138,9 @@ public class Main {
             System.out.println("4. Other");
             System.out.println("5. Go back");
             System.out.print("> ");
-
-            int userResponse = Integer.parseInt(scanner.nextLine());
-
+            System.out.print("Calculating... "); //needed to pause program if user adds taxes
+            scanner.nextLine(); //throw away the \n not consumed by nextInt()
+            userResponse = Integer.parseInt(scanner.nextLine());
             switch (userResponse) {
                 case 1: {
                     category = "Food";
@@ -140,7 +148,7 @@ public class Main {
                     itemName = scanner.nextLine();
                     System.out.println("Enter price");
                     itemPrice = Double.parseDouble(scanner.nextLine());
-                    user.addExpense(category, itemName, itemPrice);
+                    user.addExpense(category, itemName, itemPrice*tax);
                     isValid = true;
                     break;
                 }
@@ -150,7 +158,7 @@ public class Main {
                     itemName = scanner.nextLine();
                     System.out.println("Enter price");
                     itemPrice = Double.parseDouble(scanner.nextLine());
-                    user.addExpense(category, itemName, itemPrice);
+                    user.addExpense(category, itemName, itemPrice*tax);
                     isValid = true;
                     break;
                 }
@@ -160,7 +168,7 @@ public class Main {
                     itemName = scanner.nextLine();
                     System.out.println("Enter price");
                     itemPrice = Double.parseDouble(scanner.nextLine());
-                    user.addExpense(category, itemName, itemPrice);
+                    user.addExpense(category, itemName, itemPrice*tax);
                     isValid = true;
                     break;
                 }
@@ -170,7 +178,7 @@ public class Main {
                     itemName = scanner.nextLine();
                     System.out.println("Enter price");
                     itemPrice = Double.parseDouble(scanner.nextLine());
-                    user.addExpense(category, itemName, itemPrice);
+                    user.addExpense(category, itemName, itemPrice*tax);
                     isValid = true;
                     break;
                 }
@@ -180,7 +188,7 @@ public class Main {
                     itemName = scanner.nextLine();
                     System.out.println("Enter price");
                     itemPrice =Double.parseDouble(scanner.nextLine());
-                    user.addExpense(category, itemName, itemPrice);
+                    user.addExpense(category, itemName, itemPrice*tax);
                     isValid = true;
                 }
                 default: {
@@ -246,5 +254,15 @@ public class Main {
             }
         }
     }
-
+    static void addTaxes(boolean addTaxes) {
+        if (addTaxes == true) {
+            System.out.println("Enter Tax amount percentage (use only digits)");
+            int taxAmount = scanner.nextInt();
+            tax = (double) taxAmount / 100;
+            System.out.println("Tax amount applied.");
+            makeAPurchase();
+        }else{
+            makeAPurchase();
+        }
+    }
 }
