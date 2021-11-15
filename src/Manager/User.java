@@ -1,8 +1,9 @@
 package Manager;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class User {
+public class User implements Serializable {
     private String name;
     private double income;
     private double expensesTotal = 0;
@@ -21,7 +22,6 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-
 
     public void setIncome(double income) {
         this.income = income;
@@ -42,14 +42,16 @@ public class User {
                 expense.put(name, expense.get(name) + price);
             } else
                 this.list.get(key).put(name, price);
-
-            this.expensesTotal += price;
         }
-
+        this.expensesTotal += price;
     }
 
     public HashMap<String, Double> getExpenses(String key) {
         return this.list.get(key);
+    }
+
+    public HashMap<String, HashMap<String, Double>> getList(){
+        return this.list;
     }
 
     public double getBalance() {  //this on should be cast to a different variable type?

@@ -5,6 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Budget-Manager/Manager/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Budget-Manager/Manager/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Manager/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manager/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manager/purchases.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/purchases.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,16 +104,5 @@
       <updated>1636391734779</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Manager/User.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -1,14 +1,11 @@
 package Manager;
 import java.io.*;
-import java.sql.SQLOutput;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     static UserCollection collection = new UserCollection();
-    static String path = "C:\\Users\\amcmu\\IdeaProjects\\Budget-Manager\\src\\Manager\\purchases.txt";
+    static String path = "/Users/starlinlq/Desktop/Budget Manager/Budget-Manager/src/Manager/purchases.txt";
     static User user;
     static Double tax = .08;
     static int userResponse;
@@ -19,7 +16,7 @@ public class Main {
             ObjectInputStream in = new ObjectInputStream(file);
             collection = (UserCollection) in.readObject();
         } catch (IOException | ClassNotFoundException ex){
-            System.out.println(ex.getMessage());
+           // System.out.println(ex.getMessage());
         }
     }
 
@@ -28,8 +25,10 @@ public class Main {
             FileOutputStream file = new FileOutputStream(path);
             ObjectOutputStream out = new ObjectOutputStream(file);
             out.writeObject(collection);
+            System.out.println("Changes saved \n");
         } catch(IOException ex){
-            System.out.println(ex.getMessage());
+          //  System.out.println(ex.getMessage());
+          //  ex.printStackTrace();
         }
     }
 
@@ -59,7 +58,12 @@ public class Main {
                         balance();
                         break;
                     }
+
                     case 5: {
+                        analyze();
+                        break;
+                    }
+                    case 6: {
                         writeObj();
                         break;
                     }
@@ -75,6 +79,32 @@ public class Main {
                 System.out.println(ex.getMessage());
             }
         }
+    }
+
+    public static void analyze(){
+
+        List<Item> list = new ArrayList<>();
+
+        for(var key: user.getList().keySet()){
+            list.add(new Item(key, getTotalExpenses(key)));
+        }
+
+        Collections.sort(list);
+
+        for(var item : list){
+            System.out.println(item.name+" $" +item.value);
+        }
+        System.out.println("");
+
+    }
+
+    private static double getTotalExpenses(String name){
+        var items = user.getExpenses(name);
+        var spending = 0;
+        for(var key : items.keySet()){
+            spending += items.get(key);
+        }
+        return spending;
     }
 
     public static void getUser(){
@@ -100,7 +130,8 @@ public class Main {
                 "2) Add Purchase \n" +
                 "3) Show list of purchases \n" +
                 "4) Balance \n" +
-                "5) Save \n" +
+                "5) analyze \n" +
+                "6) Save \n" +
                 "0) Exit ");
     }
 
@@ -109,7 +140,7 @@ public class Main {
         try {
             double income = Double.parseDouble(scanner.nextLine());
             user.setIncome(income);
-            System.out.println("Income was added");
+            System.out.println("Income was added \n");
 
         } catch(NumberFormatException ex){
             System.out.println("Wrong number format");
@@ -123,11 +154,11 @@ public class Main {
     public static void makeAPurchase(){
         String category = "";
         String itemName = "";
-        boolean isValid = false;
-        double itemPrice;
-        Scanner scanner = new Scanner(System.in);
 
-        while(!isValid) {
+        double itemPrice;
+
+        while (true) {
+            boolean isValid = false;
             System.out.println("Choose a purchase category.");
             System.out.println("1. Food");
             System.out.println("2. Clothes");
@@ -137,58 +168,54 @@ public class Main {
             System.out.print("> ");
 
             userResponse = Integer.parseInt(scanner.nextLine());
-            switch (userResponse) {
-                case 1: {
-                    category = "Food";
-                    System.out.println("Enter item name");
-                    itemName = scanner.nextLine();
-                    System.out.println("Enter price");
-                    itemPrice = Double.parseDouble(scanner.nextLine());
-                    user.addExpense(category, itemName, itemPrice +(itemPrice*tax));
-                    isValid = true;
-                    break;
-                }
-                case 2: {
-                    category = "Clothes";
-                    System.out.println("Enter item name");
-                    itemName = scanner.nextLine();
-                    System.out.println("Enter price");
-                    itemPrice = Double.parseDouble(scanner.nextLine());
-                    user.addExpense(category, itemName, itemPrice+(itemPrice*tax));
-                    isValid = true;
-                    break;
-                }
-                case 3: {
-                    category = "Entertainment";
-                    System.out.println("Enter item name");
-                    itemName = scanner.nextLine();
-                    System.out.println("Enter price");
-                    itemPrice = Double.parseDouble(scanner.nextLine());
-                    user.addExpense(category, itemName, itemPrice+(itemPrice*tax));
-                    isValid = true;
-                    break;
-                }
-                case 4: {
-                    category = "Other";
-                    System.out.println("Enter item name");
-                    itemName = scanner.nextLine();
-                    System.out.println("Enter price");
-                    itemPrice = Double.parseDouble(scanner.nextLine());
-                    user.addExpense(category, itemName, itemPrice+(itemPrice*tax));
-                    isValid = true;
-                    break;
-                }
-                case 5: {
-                    category = "Other";
-                    System.out.println("Enter item name");
-                    itemName = scanner.nextLine();
-                    System.out.println("Enter price");
-                    itemPrice =Double.parseDouble(scanner.nextLine());
-                    user.addExpense(category, itemName, itemPrice+(itemPrice*tax));
-                    isValid = true;
-                }
-                default: {
-                    System.out.println("Please make a valid selection. \n");
+            while (!isValid) {
+                switch (userResponse) {
+                    case 1: {
+                        category = "Food";
+                        System.out.println("Enter item name");
+                        itemName = scanner.nextLine();
+                        System.out.println("Enter price");
+                        itemPrice = Double.parseDouble(scanner.nextLine());
+                        user.addExpense(category, itemName, itemPrice + (itemPrice * tax));
+                        isValid = true;
+                        break;
+                    }
+                    case 2: {
+                        category = "Clothes";
+                        System.out.println("Enter item name");
+                        itemName = scanner.nextLine();
+                        System.out.println("Enter price");
+                        itemPrice = Double.parseDouble(scanner.nextLine());
+                        user.addExpense(category, itemName, itemPrice + (itemPrice * tax));
+                        isValid = true;
+                        break;
+                    }
+                    case 3: {
+                        category = "Entertainment";
+                        System.out.println("Enter item name");
+                        itemName = scanner.nextLine();
+                        System.out.println("Enter price");
+                        itemPrice = Double.parseDouble(scanner.nextLine());
+                        user.addExpense(category, itemName, itemPrice + (itemPrice * tax));
+                        isValid = true;
+                        break;
+                    }
+                    case 4: {
+                        category = "Other";
+                        System.out.println("Enter item name");
+                        itemName = scanner.nextLine();
+                        System.out.println("Enter price");
+                        itemPrice = Double.parseDouble(scanner.nextLine());
+                        user.addExpense(category, itemName, itemPrice + (itemPrice * tax));
+                        isValid = true;
+                        break;
+                    }
+                    case 5: {
+                       return;
+                    }
+                    default: {
+                        System.out.println("Please make a valid selection. \n");
+                    }
                 }
             }
         }
@@ -200,13 +227,14 @@ public class Main {
         System.out.println("2. Clothes");
         System.out.println("3. Entertainment");
         System.out.println("4. Other");
+
         int userChoice = Integer.parseInt(scanner.nextLine());
         if(userChoice == 1) {
             HashMap<String, Double> purchases = user.getExpenses("Food");
             if(purchases != null) {
                 System.out.println("");
                 for(String key: purchases.keySet()){
-                    System.out.println(key +" $"+ purchases.get(key));
+                    System.out.println("- "+key +" $"+ purchases.get(key));
                 }
                 System.out.println("");
             }else {
@@ -218,7 +246,7 @@ public class Main {
             if(purchases != null) {
                 System.out.println("");
                 for(String key: purchases.keySet()){
-                    System.out.println(key +" $"+ purchases.get(key));
+                    System.out.println("- "+key +" $"+ purchases.get(key));
                 }
                 System.out.println("");
             }else {
@@ -230,7 +258,7 @@ public class Main {
             if(purchases != null) {
                 System.out.println("");
                 for(String key: purchases.keySet()){
-                    System.out.println(key +" $"+ purchases.get(key));
+                    System.out.println("- "+key +" $"+ purchases.get(key));
                 }
                 System.out.println("");
             }else {
@@ -242,7 +270,7 @@ public class Main {
             if(purchases != null) {
                 System.out.println("");
                 for(String key: purchases.keySet()){
-                    System.out.println(key +" $"+ purchases.get(key));
+                    System.out.println("- "+key +" $"+ purchases.get(key));
                 }
                 System.out.println("");
             }else {
