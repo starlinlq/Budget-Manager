@@ -46,7 +46,7 @@ public class Main {
                         break;
                     }
                     case 2: { //add purchase
-                        System.out.println("Standard eight percent tax applied");
+
                         makeAPurchase();
                         break;
                     }
@@ -151,72 +151,79 @@ public class Main {
         System.out.println(user.getBalance());
     }
 
-    public static void makeAPurchase(){
-        String category = "";
-        String itemName = "";
+    public static void createCategory(){
+        System.out.println("Please enter category name");
+        String category = scanner.nextLine();
+        user.createCategory(category);
+        System.out.println("Category created");
+    }
 
-        double itemPrice;
+
+
+    public static void makeAPurchase(){
+        System.out.println("""
+                1. Display categories.\s
+                2. Create new category\s
+                3. Go Back""");
+
+        try {
+            int input = Integer.parseInt(scanner.nextLine());
+
+            if(input == 2){
+                createCategory();
+                makeAPurchase();
+                return;
+            } else if (input == 3){
+                return;
+            } else if (input < 1 || input > 3){
+                System.out.println("Invalid selection, try again \n");
+                makeAPurchase();
+                return;
+            }
+        } catch (NumberFormatException ex){
+            System.out.println("Invalid number");
+            makeAPurchase();
+            return;
+        }
 
         while (true) {
+            String itemName = "";
+            double itemPrice;
+            List<String> categories = new ArrayList<>();
             boolean isValid = false;
-            System.out.println("Choose a purchase category.");
-            System.out.println("1. Food");
-            System.out.println("2. Clothes");
-            System.out.println("3. Entertainment");
-            System.out.println("4. Other");
-            System.out.println("5. Go back");
+            System.out.println("Select a category");
+            int i = 1;
+
+            for(var key: user.getList().keySet()){
+                categories.add(key);
+                System.out.println(i+")" + " " + key + " ");
+                i++;
+            }
+            System.out.println("0) Go back");
             System.out.print("> ");
 
             userResponse = Integer.parseInt(scanner.nextLine());
+            if(userResponse == 0){
+                makeAPurchase();
+                break;
+            }
+
+            String selected = categories.get(userResponse  - 1);
+
             while (!isValid) {
-                switch (userResponse) {
-                    case 1: {
-                        category = "Food";
-                        System.out.println("Enter item name");
-                        itemName = scanner.nextLine();
-                        System.out.println("Enter price");
-                        itemPrice = Double.parseDouble(scanner.nextLine());
-                        user.addExpense(category, itemName, itemPrice + (itemPrice * tax));
-                        isValid = true;
-                        break;
-                    }
-                    case 2: {
-                        category = "Clothes";
-                        System.out.println("Enter item name");
-                        itemName = scanner.nextLine();
-                        System.out.println("Enter price");
-                        itemPrice = Double.parseDouble(scanner.nextLine());
-                        user.addExpense(category, itemName, itemPrice + (itemPrice * tax));
-                        isValid = true;
-                        break;
-                    }
-                    case 3: {
-                        category = "Entertainment";
-                        System.out.println("Enter item name");
-                        itemName = scanner.nextLine();
-                        System.out.println("Enter price");
-                        itemPrice = Double.parseDouble(scanner.nextLine());
-                        user.addExpense(category, itemName, itemPrice + (itemPrice * tax));
-                        isValid = true;
-                        break;
-                    }
-                    case 4: {
-                        category = "Other";
-                        System.out.println("Enter item name");
-                        itemName = scanner.nextLine();
-                        System.out.println("Enter price");
-                        itemPrice = Double.parseDouble(scanner.nextLine());
-                        user.addExpense(category, itemName, itemPrice + (itemPrice * tax));
-                        isValid = true;
-                        break;
-                    }
-                    case 5: {
-                       return;
-                    }
-                    default: {
-                        System.out.println("Please make a valid selection. \n");
-                    }
+                try{
+                    System.out.println("Enter item name");
+                    itemName = scanner.nextLine();
+                    System.out.println("Enter price");
+                    itemPrice = Double.parseDouble(scanner.nextLine());
+                    user.addExpense(selected, itemName, itemPrice + (itemPrice * tax));
+                    System.out.println("Expense added \n");
+                    isValid = true;
+
+                } catch(NumberFormatException ex){
+                    System.out.println("Invalid input, Please try again");
                 }
+
             }
         }
     }

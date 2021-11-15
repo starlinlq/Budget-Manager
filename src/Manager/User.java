@@ -13,6 +13,14 @@ public class User implements Serializable {
     User(String name, int income){
         this.name = name;
         this.income = income;
+        createDefaultCategories();
+    }
+
+     private void createDefaultCategories(){
+         this.list.put("Food", new HashMap<>());
+         this.list.put("Clothes", new HashMap<>());
+         this.list.put("Entertainment", new HashMap<>());
+         this.list.put("Other", new HashMap<>());
     }
 
     public String getName() {
@@ -52,6 +60,10 @@ public class User implements Serializable {
 
     public HashMap<String, HashMap<String, Double>> getList(){
         return this.list;
+    }
+
+    public void createCategory(String category){
+        this.list.put(category, new HashMap<>());
     }
 
     public double getBalance() {  //this on should be cast to a different variable type?
