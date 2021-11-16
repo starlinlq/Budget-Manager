@@ -72,7 +72,7 @@ public class Main {
                         break;
                     }
                     default:
-                        break;
+                        System.out.println("Wrong selection");
                 }
 
             } catch (NumberFormatException ex) {
@@ -130,7 +130,7 @@ public class Main {
                 "2) Add Purchase \n" +
                 "3) Show list of purchases \n" +
                 "4) Balance \n" +
-                "5) analyze \n" +
+                "5) Analyze spending \n" +
                 "6) Save \n" +
                 "0) Exit ");
     }
@@ -229,60 +229,37 @@ public class Main {
     }
 
     static void displayPurchases(){
-        System.out.println("Choose a category.");
-        System.out.println("1. Food");
-        System.out.println("2. Clothes");
-        System.out.println("3. Entertainment");
-        System.out.println("4. Other");
+        List<String> categories = new ArrayList<>();
+        System.out.println("Select a category");
+        int i = 1;
 
-        int userChoice = Integer.parseInt(scanner.nextLine());
-        if(userChoice == 1) {
-            HashMap<String, Double> purchases = user.getExpenses("Food");
-            if(purchases != null) {
-                System.out.println("");
-                for(String key: purchases.keySet()){
-                    System.out.println("- "+key +" $"+ purchases.get(key));
-                }
-                System.out.println("");
-            }else {
-                System.out.println("No purchases made yet!");
-            }
+        for(var key: user.getList().keySet()){
+            categories.add(key);
+            System.out.println(i+")" + " " + key + " ");
+            i++;
         }
-        if(userChoice == 2) {
-            HashMap<String, Double> purchases = user.getExpenses("Clothes");
-            if(purchases != null) {
-                System.out.println("");
-                for(String key: purchases.keySet()){
-                    System.out.println("- "+key +" $"+ purchases.get(key));
-                }
-                System.out.println("");
-            }else {
-                System.out.println("No purchases made yet!");
-            }
+
+        System.out.println("0) Go back");
+        System.out.print("> ");
+
+        userResponse = Integer.parseInt(scanner.nextLine());
+        if(userResponse == 0){
+            return;
         }
-        if(userChoice == 3) {
-            HashMap<String, Double> purchases = user.getExpenses("Entertainment");
-            if(purchases != null) {
-                System.out.println("");
-                for(String key: purchases.keySet()){
-                    System.out.println("- "+key +" $"+ purchases.get(key));
-                }
-                System.out.println("");
-            }else {
-                System.out.println("No purchases made yet!");
-            }
-        }
-        if(userChoice == 4) {
-            HashMap<String, Double> purchases = user.getExpenses("Other");
-            if(purchases != null) {
-                System.out.println("");
-                for(String key: purchases.keySet()){
-                    System.out.println("- "+key +" $"+ purchases.get(key));
-                }
-                System.out.println("");
-            }else {
-                System.out.println("No purchases made yet!");
-            }
-        }
+
+        String selected = categories.get(userResponse  - 1);
+        HashMap<String, Double> purchases = user.getExpenses(selected);
+
+       if(purchases != null){
+          if(purchases.size() > 0){
+              for(String key: purchases.keySet()){
+                  System.out.println("- "+key+" "+purchases.get(key));
+              }
+              System.out.println("");
+          } else
+              System.out.println("No purchases made yet");
+       } else
+           System.out.println("Wrong selection");
+
     }
 }
